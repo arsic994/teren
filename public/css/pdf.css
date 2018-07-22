@@ -1,0 +1,38 @@
+body 
+	{
+        background-image: url("/back.jpg"); 
+       
+    }
+    
+    h3
+    {
+    	font-family: dejavu serif;
+    	text-align: center;
+    }
+
+    h5
+    {
+        font-family: dejavu serif;
+    	padding-top: 55px;
+    	text-align: center;
+    }
+
+    h1
+    {
+        font-family: dejavu serif;
+    	font-size: 45px;
+    	text-align: center;
+    }
+
+    p
+    {
+        font-family: dejavu serif;
+    	font-size: 100px;
+    	text-align: center;
+
+    }
+
+    img
+    {
+    	padding-top: 100px;
+    }
