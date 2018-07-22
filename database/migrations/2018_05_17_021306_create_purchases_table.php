@@ -15,6 +15,14 @@ class CreatePurchasesTable extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->integer('trip_id');
+            $table->integer('hotel_id');
+            $table->integer('bus_id');
+            $table->string('bought')->nullable();
+            $table->float('price')->nullable();
+            $table->boolean('paid')->default(false);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -26,6 +34,8 @@ class CreatePurchasesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('purchases');
+        Schema::dropIfExists('purchases', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 }

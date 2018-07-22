@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Setting;
 use Auth;
+use App\Trip;
 
 
 class HomeController extends Controller
@@ -27,7 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $active = Auth::user()->isActivationLinkExpired();
-        return view('home');
+        $trips = Trip::where('active', 1)->get();
+        return view('home', compact('trips'));
     }
 }

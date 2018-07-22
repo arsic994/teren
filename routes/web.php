@@ -82,6 +82,15 @@ Route::post('/trips/{trip_id}/package/{package_id}/update', 'PackagesController@
 Route::get('/trips/{trip_id}/package/{package_id}/delete', 'PackagesController@delete')->name('packages.delete');
 Route::post('/trips/{trip_id}/package/{package_id}/destroy', 'PackagesController@destroy')->name('packages.destroy');
 
+//Purchases routes
+Route::get('/trips/{trip_id}/purchases', 'PurchasesController@index')->name('purchases.index');
+Route::get('/trips/{trip_id}/purchases/create', 'PurchasesController@create')->name('purchases.create');
+Route::post('/trips/{trip_id}/purchases/store', 'PurchasesController@store')->name('purchases.store');
+Route::get('/trips/{trip_id}/purchases/{purchase_id}', 'PurchasesController@show')->name('purchases.show');
+Route::get('/trips/{trip_id}/purchases/{purchase_id}/edit', 'PurchasesController@edit')->name('purchases.edit');
+Route::post('/trips/{trip_id}/purchases/{purchase_id}/update', 'PurchasesController@update')->name('purchases.update');
+Route::get('/trips/{trip_id}/purchases/{purchase_id}/destroy', 'PurchasesController@destroy')->name('purchases.destroy');
+Route::get('/trips/{trip_id}/purchases/{purchase_id}/delete', 'PurchasesController@delete')->name('purchases.delete');
 
 //Users routes
 Route::get('/admin/users', 'UserController@index')->name('users.index');
@@ -91,52 +100,6 @@ Route::get('/admin/users/{user_id}/edit', 'UserController@edit')->name('users.ed
 Route::post('/admin/users/{user_id}/update', 'UserController@update')->name('users.update');
 Route::get('/admin/users/{user_id}/delete', 'UserController@delete')->name('users.delete');
 Route::post('/admin/users/{user_id}/destroy', 'UserController@destroy')->name('users.destroy');
-
-
-
-
-
-
-
-
-//Question options
-Route::get('/admin/topics/{trip_id}/questions/{bus_id}/options', 'QuestionsOptionsController@index')
-->name('options.index');
-Route::post('/admin/topics/{trip_id}/questions/{bus_id}/options/{option_id}/update', 'QuestionsOptionsController@update')
-->name('options.update');
-Route::get('/admin/topics/{trip_id}/questions/{bus_id}/options/{option_id}/delete', 'QuestionsOptionsController@delete')
-->name('options.delete');
-Route::get('/admin/topics/{trip_id}/questions/{bus_id}/options/{option_id}/destroy', 'QuestionsOptionsController@destroy')
-->name('options.destroy');
-Route::post('/admin/topics/{trip_id}/questions/{bus_id}/options/store', 'QuestionsOptionsController@store')
-->name('options.store');
-Route::get('/admin/topics/{trip_id}/questions/{bus_id}/options/{option_id}/edit', 'QuestionsOptionsController@edit')
-->name('options.edit');
-Route::get('/admin/topics/{trip_id}/questions/{bus_id}/options/create', 'QuestionsOptionsController@create')
-->name('options.create');
-
-//Administration aplication routes
-Route::get('/admin/settings', 'SettingsController@index')->name('admin.settings');
-Route::get('/admin/settings/create', 'SettingsController@create')->name('admin.settings.create');
-Route::post('/admin/settings/store', 'SettingsController@store')->name('admin.settings.store');
-Route::post('/admin/settings/update', 'SettingsController@update')->name('admin.settings.update');
-Route::get('/admin/settings/edit', 'SettingsController@edit')->name('admin.settings.edit');
-
-//Source routes
-Route::get('/auth/register', 'SourceController@getData');
-Route::resource('source', 'SourceController');
-Route::get('source/{source}/update', 'SourceController@update')->name('source.update.new');
-Route::post('/insert', 'SourceController@insert');
-Route::get('create', 'SourceController@index');
-Route::get('/delete/{id}', 'SourceController@delete');
-Route::get('/edit/{source}', 'SourceController@editData')->name('edit');
-
-
-//Test routes
-Route::post('/tests/store', 'TestsController@store')->name('tests.store');
-Route::get('/tests/{test}/create', 'TestsController@create')->name('tests.create');
-Route::get('/tests/final', 'TestsController@createFinal')->name('tests.final');
-Route::get('/tests', 'TestsController@index')->name('tests.index');
 
 //PDF for sertificate
 Route::get('/pdf', 'PDFController@downloadPDF');

@@ -16,8 +16,6 @@ class CreateTripsTable extends Migration
         Schema::create('trips', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            //$table->integer('number_of_questions');
-            //$table->integer('correct_answers');
             $table->boolean('active')->default(true);
             $table->softDeletes();
             $table->timestamp('updated_at')->nullable();

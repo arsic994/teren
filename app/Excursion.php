@@ -12,4 +12,6 @@ class Excursion extends Model
     protected $table = 'excursions';
 	protected $dates = ['deleted_at'];
     //protected $fillable = ['question_text'];
+
+    
 }
