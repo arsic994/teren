@@ -15,7 +15,7 @@
                        @foreach($trips as $trip)
                             <div class="form-group">
                             <h3>{{$trip->title}}</h3>
-                            <a href="/trips/{{$trip->id}}/purchases"><button class='btn btn-primary'>Otvori turu</button></a>
+                            <a href="/trips/{{$trip->id}}/purchase"><button class='btn btn-primary'>Otvori turu</button></a>
                             </div>
                         @endforeach
                         @else

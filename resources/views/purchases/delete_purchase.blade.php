@@ -22,7 +22,7 @@
                     </form> 
                 </div> 
             </div>
-            <a href="{{ URL::route('trips.index')}}"><button class='btn btn-primary'>Nazad</button></a>
+            <a href="{{ URL::route('purchases.index', $purchase->trip_id)}}"><button class='btn btn-primary'>Nazad</button></a>
         </div>
     </div>
 </div>

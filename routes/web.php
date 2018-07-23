@@ -83,14 +83,16 @@ Route::get('/trips/{trip_id}/package/{package_id}/delete', 'PackagesController@d
 Route::post('/trips/{trip_id}/package/{package_id}/destroy', 'PackagesController@destroy')->name('packages.destroy');
 
 //Purchases routes
-Route::get('/trips/{trip_id}/purchases', 'PurchasesController@index')->name('purchases.index');
-Route::get('/trips/{trip_id}/purchases/create', 'PurchasesController@create')->name('purchases.create');
-Route::post('/trips/{trip_id}/purchases/store', 'PurchasesController@store')->name('purchases.store');
-Route::get('/trips/{trip_id}/purchases/{purchase_id}', 'PurchasesController@show')->name('purchases.show');
-Route::get('/trips/{trip_id}/purchases/{purchase_id}/edit', 'PurchasesController@edit')->name('purchases.edit');
-Route::post('/trips/{trip_id}/purchases/{purchase_id}/update', 'PurchasesController@update')->name('purchases.update');
-Route::get('/trips/{trip_id}/purchases/{purchase_id}/destroy', 'PurchasesController@destroy')->name('purchases.destroy');
-Route::get('/trips/{trip_id}/purchases/{purchase_id}/delete', 'PurchasesController@delete')->name('purchases.delete');
+Route::get('/trips/{trip_id}/purchase', 'PurchasesController@index')->name('purchases.index');
+Route::get('/trips/{trip_id}/purchase/create', 'PurchasesController@create')->name('purchases.create');
+Route::post('/trips/{trip_id}/purchase/store', 'PurchasesController@store')->name('purchases.store');
+Route::get('/trips/{trip_id}/purchase/{purchase_id}', 'PurchasesController@show')->name('purchases.show');
+Route::get('/trips/{trip_id}/purchase/{purchase_id}/show', 'PurchasesController@confirmPurchase')->name('purchases.confirm');
+Route::post('/trips/{trip_id}/purchase/{purchase_id}/confirmed', 'PurchasesController@confirmedPurchase')->name('purchases.confirmed');
+Route::get('/trips/{trip_id}/purchase/{purchase_id}/edit', 'PurchasesController@edit')->name('purchases.edit');
+Route::post('/trips/{trip_id}/purchase/{purchase_id}/update', 'PurchasesController@update')->name('purchases.update');
+Route::get('/trips/{trip_id}/purchase/{purchase_id}/destroy', 'PurchasesController@destroy')->name('purchases.destroy');
+Route::get('/trips/{trip_id}/purchase/{purchase_id}/delete', 'PurchasesController@delete')->name('purchases.delete');
 
 //Users routes
 Route::get('/admin/users', 'UserController@index')->name('users.index');
